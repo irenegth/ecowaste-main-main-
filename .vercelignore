@@ -1,0 +1,2 @@
+# Ignore backend PHP files in the frontend folder so Vercel doesn't serve PHP source
+frontend-ecowaste/**/*.php
