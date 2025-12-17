@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Pickup - EcoWaste Management</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo" onclick="window.location.href='dashboard.html'">
+            <img class="logo-icon" src="https://img.icons8.com/?size=100&id=seuCyneMNgp6&format=png&color=000000" alt="EcoWaste Logo">
+            <div class="logo-text">
+                <div class="logo-title">EcoWaste</div>
+                <div class="logo-subtitle">Management</div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </div>
+            
+            <div class="nav-item" onclick="window.location.href='schedule-pickup.html'">
+                <span class="nav-icon">📅</span>
+                <span>Schedule Pickup</span>
+            </div>
+            <div class="nav-item active">
+                <span class="nav-icon">📋</span>
+                <span>Request Pickup</span>
+            </div>
+            
+            <div class="nav-item" onclick="window.location.href='recycling-centers.html'">
+                <span class="nav-icon">📍</span>
+                <span>Recycling Centers</span>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            
+            <div class="nav-item" onclick="if(confirm('Log out?')) window.location.href='index.html'">
+    <span class="nav-icon">🚪</span>
+    <span>Log out</span>
+</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+                <div class="top-bar">
+            <div class="user-section" style="margin-left: auto;">
+                <button class="icon-btn">💬</button>
+                <button class="icon-btn">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-info" style="cursor: pointer;" onclick="window.location.href='profile&settings.html'">
+                    <div class="user-avatar">AU</div>
+                    <div class="user-details">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-email">admin@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="page-header">
+                <h1 class="page-title">Request Special Pickup</h1>
+                <p class="page-subtitle">Request pickup for special waste items</p>
+            </div>
+
+            <div class="rp-form-card">
+                <h2 class="rp-form-title">New Pickup Request</h2>
+                <p class="rp-form-subtitle">Fill in details for your special waste pickup</p>
+
+                <form id="requestForm">
+                    <div class="rp-form-row">
+                        <div class="rp-form-group">
+                            <label class="rp-label">Waste Category <span class="required">*</span></label>
+                            <select id="wasteCategory" required>
+                                <option value="">Select category</option>
+                                <option value="electronics">Electronics (E-Waste)</option>
+                                <option value="hazardous">Hazardous Waste</option>
+                                <option value="bulk">Bulk Items</option>
+                                <option value="construction">Construction Debris</option>
+                                <option value="medical">Medical Waste</option>
+                            </select>
+                        </div>
+
+                        <div class="rp-form-group">
+                            <label class="rp-label">Estimated Weight <span class="required">*</span></label>
+                            <select id="estimatedWeight" required>
+                                <option value="">Select weight range</option>
+                                <option value="1-10">1-10 kg</option>
+                                <option value="11-25">11-25 kg</option>
+                                <option value="26-50">26-50 kg</option>
+                                <option value="51-100">51-100 kg</option>
+                                <option value="100+">100+ kg</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="rp-form-row">
+                        <div class="rp-form-group">
+                            <label class="rp-label">Preferred Date <span class="required">*</span></label>
+                            <input type="date" id="preferredDate" required>
+                        </div>
+
+                        <div class="rp-form-group">
+                            <label class="rp-label">Time Preference</label>
+                            <select id="timePreference">
+                                <option value="">Any time</option>
+                                <option value="morning">Morning (8AM-12PM)</option>
+                                <option value="afternoon">Afternoon (1PM-5PM)</option>
+                                <option value="evening">Evening (5PM-8PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="rp-form-group full-width">
+                        <label class="rp-label">Item Description <span class="required">*</span></label>
+                        <textarea id="itemDescription" placeholder="Describe the items to be picked up..." rows="3" required></textarea>
+                    </div>
+
+                    <div class="rp-form-group full-width">
+                        <label class="rp-label">Special Instructions</label>
+                        <textarea id="specialInstructions" placeholder="Any special handling requirements..." rows="2"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+
+            <div class="requests-section">
+                <h2 class="sp-section-title">Your Recent Requests</h2>
+                <p class="sp-section-subtitle">Track the status of your pickup requests</p>
+
+                <div class="request-item">
+                    <div class="request-header">
+                        <div class="request-title">Electronics Collection</div>
+                        <span class="status-badge status-approved">Approved</span>
+                    </div>
+                    <div class="request-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value">Electronics</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Weight:</span>
+                            <span class="detail-value">15-25 kg</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Date:</span>
+                            <span class="detail-value">Nov 30, 2025</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Status:</span>
+                            <span class="detail-value">Scheduled for pickup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="request-item">
+                    <div class="request-header">
+                        <div class="request-title">Hazardous Waste</div>
+                        <span class="status-badge status-pending">Pending</span>
+                    </div>
+                    <div class="request-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value">Hazardous Waste</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Weight:</span>
+                            <span class="detail-value">5-10 kg</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Date:</span>
+                            <span class="detail-value">Dec 2, 2025</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Status:</span>
+                            <span class="detail-value">Awaiting approval</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="request-item">
+                    <div class="request-header">
+                        <div class="request-title">Bulk Furniture</div>
+                        <span class="status-badge status-approved">Completed</span>
+                    </div>
+                    <div class="request-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value">Bulk Items</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Weight:</span>
+                            <span class="detail-value">50-75 kg</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Date:</span>
+                            <span class="detail-value">Nov 25, 2025</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Status:</span>
+                            <span class="detail-value">Successfully collected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acceptable-items">
+                <h2 class="sp-section-title">Acceptable Items for Special Pickup</h2>
+                <div class="items-grid">
+                    <div class="items-column accepted">
+                        <h3>✅ Accepted Items</h3>
+                        <ul>
+                            <li>Old computers & laptops</li>
+                            <li>Mobile phones & tablets</li>
+                            <li>Televisions & monitors</li>
+                            <li>Batteries (all types)</li>
+                            <li>Light bulbs & tubes</li>
+                            <li>Paint & chemicals</li>
+                            <li>Old furniture</li>
+                            <li>Mattresses</li>
+                        </ul>
+                    </div>
+                    <div class="items-column not-accepted">
+                        <h3>❌ Not Accepted</h3>
+                        <ul>
+                            <li>Explosive materials</li>
+                            <li>Radioactive waste</li>
+                            <li>Medical sharps</li>
+                            <li>Biological waste</li>
+                            <li>Asbestos materials</li>
+                            <li>Large vehicle parts</li>
+                            <li>Untreated sewage</li>
+                            <li>Illegal substances</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('preferredDate').setAttribute('min', today);
+
+        document.getElementById('requestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const category = document.getElementById('wasteCategory').value;
+            const weight = document.getElementById('estimatedWeight').value;
+            const date = document.getElementById('preferredDate').value;
+            const description = document.getElementById('itemDescription').value;
+
+            if (category && weight && date && description) {
+                alert('Pickup request submitted successfully! You will receive a confirmation within 24 hours.');
+                this.reset();
+                document.getElementById('preferredDate').setAttribute('min', today);
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        function showUserMenu() {
+    const choice = confirm("Profile & Settings: OK\nLogout: Cancel");
+    if (choice) {
+        window.location.href = 'profile&settings.html';
+    } else {
+        logout();
+    }
+}
+
+function logout() {
+    if (confirm('Are you sure you want to log out?')) {
+        alert('Logging out...');
+        window.location.href = 'login.html';
+    }
+}
+    </script>
+</body>
+</html>

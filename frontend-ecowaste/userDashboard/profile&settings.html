@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Settings - EcoWaste Management</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo" onclick="window.location.href='dashboard.html'">
+            <img class="logo-icon" src="https://img.icons8.com/?size=100&id=seuCyneMNgp6&format=png&color=000000" alt="EcoWaste Logo">
+            <div class="logo-text">
+                <div class="logo-title">EcoWaste</div>
+                <div class="logo-subtitle">Management</div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </div>
+            
+            <div class="nav-item" onclick="window.location.href='schedule-pickup.html'">
+                <span class="nav-icon">📅</span>
+                <span>Schedule Pickup</span>
+            </div>
+            <div class="nav-item" onclick="window.location.href='request-pickup.html'">
+                <span class="nav-icon">📋</span>
+                <span>Request Pickup</span>
+            </div>
+            
+            <div class="nav-item" onclick="window.location.href='recycling-centers.html'">
+                <span class="nav-icon">📍</span>
+                <span>Recycling Centers</span>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            
+            <div class="nav-item" onclick="if(confirm('Log out?')) window.location.href='index.html'">
+    <span class="nav-icon">🚪</span>
+    <span>Log out</span>
+</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+                <div class="top-bar">
+            <div class="user-section" style="margin-left: auto;">
+                <button class="icon-btn">💬</button>
+                <button class="icon-btn">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-info" style="cursor: pointer;" onclick="window.location.href='profile&settings.html'">
+                    <div class="user-avatar">AU</div>
+                    <div class="user-details">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-email">admin@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="page-header">
+                <h1 class="page-title">Profile & Settings</h1>
+                <p class="page-subtitle">Manage your account and preferences</p>
+            </div>
+
+            <div class="tabs">
+                <button class="profile-tab active" onclick="switchTab('profile')">Profile</button>
+                <button class="profile-tab" onclick="switchTab('account')">Settings</button>
+                <button class="profile-tab" onclick="switchTab('notifications')">Notifications</button>
+                <button class="profile-tab" onclick="switchTab('privacy')">Privacy & Security</button>
+            </div>
+
+            <!-- Profile Tab -->
+            <div class="tab-content" id="profileTab">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div>
+                            <h2 class="ps-section-title">Personal Information</h2>
+                            <p class="ps-section-subtitle">Update your personal details</p>
+                        </div>
+                        <button class="edit-btn" onclick="enableEdit()">Edit Profile</button>
+                    </div>
+
+                    <div class="profile-main">
+                        <div class="profile-avatar">AU</div>
+                        <div class="profile-info">
+                            <div class="profile-name">Admin User</div>
+                            <div class="profile-email">admin@example.com</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <div class="profile-detail-icon">📞</div>
+                            <div class="profile-detail-content">
+                                <div class="profile-detail-label">Phone Number</div>
+                                <input type="tel" class="profile-input" value="+1 (555) 123-4567" readonly>
+                            </div>
+                        </div>
+
+                        <div class="profile-detail-item">
+                            <div class="profile-detail-icon">📍</div>
+                            <div class="profile-detail-content">
+                                <div class="profile-detail-label">Address</div>
+                                <input type="text" class="profile-input" value="123 Green Street, Eco City" readonly>
+                            </div>
+                        </div>
+
+                        <div class="profile-detail-item">
+                            <div class="profile-detail-icon">📅</div>
+                            <div class="profile-detail-content">
+                                <div class="profile-detail-label">Member Since</div>
+                                <input type="text" class="profile-input" value="January 2024" readonly>
+                            </div>
+                        </div>
+
+                        <div class="profile-detail-item">
+                            <div class="profile-detail-icon">👥</div>
+                            <div class="profile-detail-content">
+                                <div class="profile-detail-label">Account Type</div>
+                                <input type="text" class="profile-input" value="Administrator" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h2 class="ps-section-title">Account Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="ps-stat-label">Total Pickups</div>
+                            <div class="ps-stat-value">42</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="ps-stat-label">Recycled Waste</div>
+                            <div class="ps-stat-value">1,245 kg</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="ps-stat-label">Environmental Impact</div>
+                            <div class="ps-stat-value">245 kg CO₂</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab (Hidden by default) -->
+            <div class="tab-content" id="accountTab" style="display: none;">
+                <div class="profile-card">
+                    <!-- Time Zone section removed completely -->
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="sp-label">Email Notifications</label>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" checked> Pickup reminders
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" checked> Recycling tips
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox"> Promotional offers
+                        </label>
+                    </div>
+                </div>
+
+                <button class="save-btn">Save Preferences</button>
+            </div>
+
+            <!-- Notifications Tab (Hidden by default) -->
+            <div class="tab-content" id="notificationsTab" style="display: none;">
+                <div class="profile-card">
+                    <h2 class="ps-section-title">Notification Settings</h2>
+                    <p class="ps-section-subtitle">Configure how you receive notifications</p>
+
+                    <div class="form-group full-width">
+                        <label class="sp-label">Push Notifications</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" checked> Pickup schedules
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" checked> Request updates
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox"> New features
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="sp-label">SMS Notifications</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox"> Emergency alerts
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox"> Service updates
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="save-btn">Save Notification Settings</button>
+                </div>
+            </div>
+
+            <!-- Privacy Tab (Hidden by default) -->
+            <div class="tab-content" id="privacyTab" style="display: none;">
+                <div class="profile-card">
+                    <h2 class="ps-section-title">Privacy & Security</h2>
+                    <p class="ps-section-subtitle">Manage your privacy settings and security</p>
+
+                    <div class="form-group full-width">
+                        <label class="sp-label">Change Password</label>
+                        <input type="password" placeholder="Current password" style="margin-bottom: 0.5rem;">
+                        <input type="password" placeholder="New password" style="margin-bottom: 0.5rem;">
+                        <input type="password" placeholder="Confirm new password">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="sp-label">Two-Factor Authentication</label>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                            <span>Status: <strong>Disabled</strong></span>
+                            <button class="edit-btn" style="padding: 0.4rem 1rem;">Enable</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="sp-label">Data Privacy</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" checked> Share anonymous usage data
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox"> Allow location tracking
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="save-btn">Save Security Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.profile-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + 'Tab').style.display = 'block';
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Enable edit mode for profile
+        function enableEdit() {
+            const inputs = document.querySelectorAll('.profile-input');
+            const editBtn = document.querySelector('.edit-btn');
+            
+            if (editBtn.textContent === 'Edit Profile') {
+                inputs.forEach(input => {
+                    input.removeAttribute('readonly');
+                    input.style.backgroundColor = '#f8f9fa';
+                    input.style.border = '1px solid #00A651';
+                });
+                editBtn.textContent = 'Save Changes';
+                editBtn.style.background = '#00A651';
+            } else {
+                inputs.forEach(input => {
+                    input.setAttribute('readonly', true);
+                    input.style.backgroundColor = 'transparent';
+                    input.style.border = 'none';
+                });
+                editBtn.textContent = 'Edit Profile';
+                editBtn.style.background = '#212529';
+                alert('Profile updated successfully!');
+            }
+        }
+
+        // Save button functionality
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Settings saved successfully!');
+            });
+        });
+        function showUserMenu() {
+    const choice = confirm("Profile & Settings: OK\nLogout: Cancel");
+    if (choice) {
+        window.location.href = 'profile&settings.html';
+    } else {
+        logout();
+    }
+}
+
+function logout() {
+    if (confirm('Are you sure you want to log out?')) {
+        alert('Logging out...');
+        window.location.href = 'login.html';
+    }
+}
+    </script>
+</body>
+</html>
