@@ -17,11 +17,18 @@
     <button type="submit">Request Pickup</button>
   </form>
   <p id="msg"></p>
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
   <script>
     StaticAuth.requireLogin();
-    document.getElementById('pickupForm').addEventListener('submit', function(e){
+    document.getElementById('pickupForm').addEventListener('submit', async function(e){
       e.preventDefault();
-      // In static demo, we just show a success message. In real deploy, POST to API.
+      const payload = { date: document.getElementById('date').value, type: document.getElementById('type').value, weight: document.getElementById('weight').value };
+      if (window.__BACKEND_BASE_URL__) {
+        const res = await EcoApi.requestPickup(payload);
+        document.getElementById('msg').textContent = (res && (res.success || res.ok)) ? 'Pickup requested.' : (res.message || 'Request failed');
+        return;
+      }
       document.getElementById('msg').textContent = 'Pickup requested (demo). In production this will call the backend API.';
     });
   </script>
