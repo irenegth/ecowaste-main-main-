@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Profile & Settings - EcoWaste</title>
+  <link rel="stylesheet" href="all.css">
+  <script src="../js/auth.js"></script>
+  <style>body{padding:20px;font-family:Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <h1>Profile & Settings</h1>
+  <div id="profile"></div>
+  <button id="logout">Logout</button>
+
+  <script>
+    StaticAuth.requireLogin();
+    const u = StaticAuth.getUser();
+    document.getElementById('profile').innerHTML = `<p><strong>Name:</strong> ${u.name || 'User'}</p><p><strong>Email:</strong> ${u.email || ''}</p><p><strong>Role:</strong> ${u.role || ''}</p>`;
+    document.getElementById('logout').addEventListener('click', () => StaticAuth.logout());
+  </script>
+</body>
+</html>
