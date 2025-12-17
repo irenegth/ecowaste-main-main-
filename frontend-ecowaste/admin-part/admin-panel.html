@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Panel - EcoWaste</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="../js/auth.js"></script>
+  <style>body{padding:20px;font-family:Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <h1>Admin Panel</h1>
+  <p>Welcome to the admin panel (static demo).</p>
+  <nav>
+    <a href="dashboard.html">Dashboard</a> | <a href="recycling-centers.html">Recycling Centers</a> | <a href="profile&settings.html">Profile</a>
+  </nav>
+  <button id="logout">Logout</button>
+  <script>
+    StaticAuth.requireAdmin();
+    document.getElementById('logout').addEventListener('click', () => StaticAuth.logout());
+  </script>
+</body>
+</html>
