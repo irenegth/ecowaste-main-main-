@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>User Dashboard - EcoWaste</title>
+  <link rel="stylesheet" href="all.css">
+  <style>body{padding:20px;font-family:Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <h1 id="welcome">User Dashboard</h1>
+  <p id="userInfo"></p>
+  <button id="logout">Logout</button>
+
+  <script>
+    if (localStorage.getItem('isLoggedIn') !== '1') {
+      window.location.href = '../Auth,login,signup/login.html';
+    }
+    const name = localStorage.getItem('user_name') || 'User';
+    document.getElementById('welcome').textContent = `Welcome, ${name}`;
+    document.getElementById('logout').addEventListener('click', function(){
+      localStorage.clear();
+      window.location.href = '../Auth,login,signup/login.html';
+    });
+  </script>
+</body>
+</html>
