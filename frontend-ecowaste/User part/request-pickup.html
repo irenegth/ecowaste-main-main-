@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Request Pickup - EcoWaste</title>
+  <link rel="stylesheet" href="all.css">
+  <script src="../js/auth.js"></script>
+  <style>body{padding:20px;font-family:Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <h1>Request Pickup</h1>
+  <form id="pickupForm">
+    <label>Pickup Date: <input type="date" id="date" required></label><br><br>
+    <label>Waste Type: <input id="type" required></label><br><br>
+    <label>Weight (kg): <input id="weight" type="number" step="0.1" required></label><br><br>
+    <button type="submit">Request Pickup</button>
+  </form>
+  <p id="msg"></p>
+  <script>
+    StaticAuth.requireLogin();
+    document.getElementById('pickupForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // In static demo, we just show a success message. In real deploy, POST to API.
+      document.getElementById('msg').textContent = 'Pickup requested (demo). In production this will call the backend API.';
+    });
+  </script>
+</body>
+</html>
