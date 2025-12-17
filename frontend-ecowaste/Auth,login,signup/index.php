@@ -13,7 +13,7 @@
             EcoWaste Manager
         </div>
         <!-- CHANGED: login.html to login.php -->
-        <button class="btn-primary" onclick="window.location.href='login.php'">Get Started</button>
+        <button class="btn-primary" onclick="window.location.href='login.html'">Get Started</button>
     </nav>
 
     <section class="hero">
@@ -22,7 +22,7 @@
         <p class="subtitle">For a Cleaner Future</p>
         <p>Schedule waste pickups, find nearby recycling centers, and track your environmental impact with our comprehensive waste management platform.</p>
         <!-- CHANGED: login.html to login.php -->
-        <button class="btn-cta" onclick="window.location.href='login.php'">Start Managing Waste</button>
+        <button class="btn-cta" onclick="window.location.href='login.html'">Start Managing Waste</button>
     </section>
 
     <h2 class="section-title">Key Features</h2>
@@ -105,7 +105,7 @@
         <h2>Ready to Make a Difference?</h2>
         <p>Join thousands of users managing their waste responsibly.</p>
         <!-- CHANGED: login.html to login.php -->
-        <button class="btn-cta" onclick="window.location.href='login.php'">Get Started Today</button>
+        <button class="btn-cta" onclick="window.location.href='login.html'">Get Started Today</button>
     </section>
 </body>
 </html>
