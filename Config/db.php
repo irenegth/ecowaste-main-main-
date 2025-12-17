@@ -14,11 +14,11 @@ class Database {
     public $conn;
 
     public function __construct() {
-        $this->host = 'localhost';
-        $this->dbname = 'ecowaste_db';
-        $this->username = 'root';
-        $this->password = '';
-        $this->charset = 'utf8mb4';
+        $this->host = getenv('DB_HOST') ?: 'localhost';
+        $this->dbname = getenv('DB_NAME') ?: 'ecowaste_db';
+        $this->username = getenv('DB_USER') ?: 'root';
+        $this->password = getenv('DB_PASS') ?: '';
+        $this->charset = getenv('DB_CHARSET') ?: 'utf8mb4';
         
         // Initialize mysqli connection for backward compatibility
         $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname);
@@ -28,6 +28,14 @@ class Database {
         }
         
         $this->conn->set_charset("utf8mb4");
+    }
+
+    /**
+     * Determine if the app is running in production.
+     */
+    private function isProduction() {
+        $env = getenv('APP_ENV');
+        return $env && strtolower($env) === 'production';
     }
 
     /**
