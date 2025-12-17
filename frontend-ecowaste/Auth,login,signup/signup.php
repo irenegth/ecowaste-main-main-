@@ -25,7 +25,7 @@ session_start();
     </div>
 
     <div class="tab-container">
-        <button class="tab" onclick="window.location.href='login.php'">Login</button>
+            <button class="tab" onclick="window.location.href='login.html'">Login</button>
         <button class="tab active">Sign Up</button>
     </div>
 </div>
@@ -188,7 +188,7 @@ document.getElementById('signupForm').addEventListener('submit', async function(
             
             // Redirect to login page after 3 seconds
             setTimeout(() => {
-                window.location.href = 'login.php';
+                window.location.href = 'login.html';
             }, 3000);
             
         } else {
